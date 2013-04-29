@@ -12,5 +12,5 @@ Windows:
 [sublime 2]\Data\Packages\Lua\
 
 
-If you want create your own lua.sublime-completions, just need to modify parse.pl , change @dirs to the location of your lua projects, then run it, it will create a lua.sublime-completions into `$outupt`
+If you want to create your own lua.sublime-completions, just need to modify parse.pl, change @dirs to the location of your lua projects, then run it, it will create a lua.sublime-completions into `$outupt`
 
