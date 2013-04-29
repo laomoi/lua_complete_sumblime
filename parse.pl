@@ -40,6 +40,13 @@ sub main {
             $triggers_content .=  "\t\t" . $trigger_tmpl ."\n";
         }
  
+         for my $field(@$fields) {
+            my $desc = $key . '.' . $field ;
+            my $content = $desc;
+            my $trigger_tmpl = qq# { "trigger": "$desc", "contents": "$content" },#;
+            $triggers_content .=  "\t\t" . $trigger_tmpl ."\n";
+        }
+ 
 
     }
 
@@ -101,6 +108,14 @@ sub parseLuaAPIDir {
             my $key = $1;
             push @{ $rh_parsed->{$short}->{fields}}, $key;
         }
+
+
+        #UPPER CASE WORDS, they must be some CONSTANTS, 
+
+        # while ($c =~ m{[A-Z_]}gis) {
+        #     my $key = $1;
+        #     push @{ $rh_parsed->{$short}->{fields}}, $key;
+        # }
 
     }
 }
