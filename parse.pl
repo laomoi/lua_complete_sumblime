@@ -2,7 +2,7 @@ use strict;
 use FindBin qw/$Bin/;
 use Data::Dumper;
 
-my @dirs = ('E:/quick-cocos2d-x/framework/client', 'E:/quick-cocos2d-x/framework/shared');
+my @dirs = ('E:/quick-cocos2d-x/framework/client', 'E:/quick-cocos2d-x/framework/shared', 'E:\quick-cocos2d-x\samples\papax\scripts');
 my $outupt = "E:/Sublime Text 2.0.1/Data/Packages/Lua/lua.sublime-completions";
 my $luadir = $Bin . "lua5.1";
 my $rh_parsed = {};
@@ -34,7 +34,7 @@ sub main {
             my $name = $f->{name};
             my $params = $f->{params};
             my $desc = $key . '.' . $name . '(' . join(",", @$params). ')';
-            my @real_parms = map { "\$\{" . ($_ +1)."\}" . $params->[$_] } 0..(@$params-1);
+            my @real_parms = map { "\$\{" . ($_ +1) . ":" . $params->[$_] ."\}"  } 0..(@$params-1);
             my $content = $key . '.' . $name . '(' . join(",", @real_parms). ')';
             my $trigger_tmpl = qq# { "trigger": "$desc", "contents": "$content" },#;
             $triggers_content .=  "\t\t" . $trigger_tmpl ."\n";
